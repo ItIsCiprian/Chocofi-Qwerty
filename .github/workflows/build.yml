@@ -48,7 +48,7 @@ jobs:
           west build -s zmk/app -b ${{ matrix.board }} -- -DZMK_CONFIG=/tmp/zmk-config/config ${{ matrix.cmake-args }}
 
       - name: Upload firmware
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.artifact-name }}
           path: build/zephyr/zmk.uf2
