@@ -1,13 +1,21 @@
+# This file generates the GitHub Actions matrix
+# For simple board + shield combinations, add them
+# to the top level board and shield arrays, for more
+# control, add individual board + shield combinations to
+# the `include` property, e.g:
+#
+# board: [ "nice_nano_v2" ]
+# shield: [ "corne_left", "corne_right" ]
+# include:
+#   - board: bdn9_rev2
+#   - board: nice_nano_v2
+#     shield: reviung41
+#
 ---
 include:
   - board: nice_nano_v2
-    shield: corne_left
-    cmake-args: -DSHIELD="nice_view_adapter nice_view"
-    artifact-name: corne_left_with_view_adapter
+    shield: corne_left nice_view_adapter nice_view
   - board: nice_nano_v2
-    shield: corne_right
-    cmake-args: -DSHIELD="nice_view_adapter nice_view"
-    artifact-name: corne_right_with_view_adapter
+    shield: corne_right nice_view_adapter nice_view
   - board: nice_nano_v2
-    shield: reviung41
-    artifact-name: reviung41_firmware
+    shield: settings_reset
