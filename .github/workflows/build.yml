@@ -1,28 +1,5 @@
-name: Build ZMK Firmware
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
-
 jobs:
   build:
-    strategy:
-      matrix:
-        include:
-          - board: nice_nano_v2
-            shield: corne_left
-            cmake-args: -DSHIELD="nice_view_adapter nice_view"
-            artifact-name: corne_left_with_view_adapter
-          - board: nice_nano_v2
-            shield: corne_right
-            cmake-args: -DSHIELD="nice_view_adapter nice_view"
-            artifact-name: corne_right_with_view_adapter
-
     runs-on: ubuntu-latest
 
     steps:
@@ -37,18 +14,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install west
-          west init -m https://github.com/zmkfirmware/zmk.git
-          cd zmk
+          rm -rf .west  # Clean the .west directory
+          west init -m https://github.com/zmkfirmware/zmk.git --manifest-path=app --mr main
           west update
           west zephyr-export
           pip install -r zephyr/scripts/requirements.txt
-
-      - name: Build firmware
-        run: |
-          west build -s zmk/app -b ${{ matrix.board }} -- -DZMK_CONFIG=/tmp/zmk-config/config ${{ matrix.cmake-args }}
-
-      - name: Upload firmware
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ matrix.artifact-name }}
-          path: build/zephyr/zmk.uf2
