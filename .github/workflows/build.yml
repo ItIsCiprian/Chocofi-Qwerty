@@ -1,21 +1,5 @@
+on: [push, pull_request, workflow_dispatch]
+
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          pip install west
-          rm -rf .west  # Clean the .west directory
-          west init -m https://github.com/zmkfirmware/zmk.git --manifest-path=app --mr main
-          west update
-          west zephyr-export
-          pip install -r zephyr/scripts/requirements.txt
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
