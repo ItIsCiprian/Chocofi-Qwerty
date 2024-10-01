@@ -24,7 +24,7 @@
 &none  &kp A             &kp S  &kp D             &kp F     &kp G            &kp H      &kp J        &kp K            &kp L       &kp SINGLE_QUOTE          &none
 &none  &mt LEFT_SHIFT Z  &kp X  &kp C             &kp V     &kp B            &kp N      &kp M        &kp COMMA        &kp PERIOD  &mt RIGHT_SHIFT QUESTION  &none
                                 &mt ESC LEFT_ALT  &kp LCMD  &mt LCTRL TAB    &kp ENTER  &lt 1 SPACE  &lt 2 BACKSPACE
-            >;
+            >; 
         };
 
         lower_layer {
