@@ -5,7 +5,6 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 / {
@@ -105,10 +104,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q              &kp W             &kp F                    &kp P                  &kp B        &kp J      &kp L              &kp U             &kp Y              &kp APOS             &none
-&none  &weak LEFT_META A  &weak LEFT_ALT R  &shifthr LEFT_CONTROL S  &shifthr LEFT_SHIFT T  &kp G        &kp M      &shifthr RSHIFT N  &shifthr RCTRL E  &weak RIGHT_ALT I  &kp O                &none
-&none  &kp Z              &kp X             &kp C                    &kp D                  &kp V        &kp K      &kp H              &kp COMMA         &kp DOT            &hm SEMICOLON SLASH  &none
-                                            &none                    &lt 1 BACKSPACE        &lt 2 TAB    &lt 2 RET  &lt 1 SPACE        &save
+&none  &kp Q         &kp W  &kp E             &kp R      &kp T            &kp Y         &kp U        &kp I            &kp O    &kp P             &none
+&none  &kp A         &kp S  &kp D             &kp F      &kp G            &kp H         &kp J        &kp K            &kp L    &kp SQT           &none
+&none  &hm LSHIFT Z  &kp X  &kp C             &kp V      &kp B            &kp N         &kp M        &kp COMMA        &kp DOT  &hm RSHIFT SLASH  &none
+                            &hm LEFT_ALT ESC  &kp LMETA  &hm LCTRL TAB    &kp KP_ENTER  &lt 1 SPACE  &lt 2 BACKSPACE
             >;
 
             label = "home";
@@ -122,10 +121,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &kp EXCL            &kp AT               &kp LEFT_BRACE              &kp RIGHT_BRACE                   &kp PIPE     &kp PLUS   &kp NUMBER_7  &kp N8        &kp N9                    &kp ASTERISK   &none
-&none  &hm LEFT_META HASH  &hm LEFT_ALT DOLLAR  &hm LCTRL LEFT_PARENTHESIS  &hm LEFT_SHIFT RIGHT_PARENTHESIS  &kp GRAVE    &kp MINUS  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6              &kp COLON      &none
-&none  &kp PERCENT         &kp CARET            &kp LEFT_BRACKET            &kp RIGHT_BRACKET                 &kp TILDE    &kp EQUAL  &kp NUMBER_1  &kp NUMBER_2  &shifthr PERIOD NUMBER_3  &kp BACKSLASH  &none
-                                                &none                       &kp LC(BACKSPACE)                 &kp DEL      &kp RET    &kp SPACE     &kp N0
+&none  &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5     &kp NUMBER_6  &kp NUMBER_7  &kp N8            &kp N9             &kp N0                &none
+&none  &kp TILDE       &kp HOME      &kp PAGE_UP   &kp PG_DN     &kp END    &kp LEFT      &kp DOWN      &kp UP_ARROW      &kp RIGHT          &kp SEMICOLON         &none
+&none  &kp LEFT_SHIFT  &trans        &trans        &trans        &trans     &kp MINUS     &kp EQUAL     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &hm RSHIFT BACKSLASH  &none
+                                     &trans        &trans        &trans     &trans        &trans        &trans
             >;
 
             label = "num";
@@ -133,10 +132,10 @@
 
         nav {
             bindings = <
-&trans  &kp F1            &kp F2           &kp F3        &kp F4             &email             &kp LS(K_PREVIOUS)  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp LS(K_NEXT)  &kp K_PLAY_PAUSE  &trans
-&trans  &hm LEFT_META F5  &hm LEFT_ALT F6  &hm LCTRL F7  &hm LEFT_SHIFT F8  &hm LC(V) LC(C)    &kp LEFT_ARROW      &kp DOWN           &kp UP_ARROW     &kp RIGHT       &none             &trans
-&trans  &kp F9            &kp F10          &kp F11       &kp F12            &kp PSCRN          &kp LA(H)           &kp LA(TAB)        &none            &kp LA(L)       &none             &trans
-                                           &bt BT_CLR    &bt BT_NXT         &trans             &trans              &trans             &trans
+&trans  &kp F1   &kp F2   &kp F3      &kp F4            &kp F5            &kp LS(F6)  &kp F7        &kp F8        &kp LS(F9)            &kp F10               &trans
+&trans  &kp F11  &kp F12  &kp K_PREV  &kp K_PLAY_PAUSE  &kp LC(K_NEXT)    &kp K_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans
+&trans  &trans   &trans   &trans      &trans            &trans            &trans      &trans        &trans        &trans                &trans                &trans
+                          &trans      &trans            &trans            &trans      &trans        &trans
             >;
 
             label = "nav";
