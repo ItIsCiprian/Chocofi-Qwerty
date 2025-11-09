@@ -1,46 +1,31 @@
-/*
- * Chocofi QWERTY — 3-Layer Layout
- * Inspired by Peter X. Jang’s minimalist 36-key layout
- * SPDX-License-Identifier: MIT
- */
-
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
-
 / {
     keymap {
         compatible = "zmk,keymap";
-        label = "Chocofi-Qwerty";
 
-        /* ──────────────── LAYER 0: BASE ──────────────── */
         default_layer {
             bindings = <
-                &kp Q     &kp W     &kp E     &kp R     &kp T              &kp Y     &kp U     &kp I     &kp O     &kp P
-                &kp A     &kp S     &kp D     &kp F     &kp G              &kp H     &kp J     &kp K     &kp L     &kp SQT
-                &mt(LSHFT, Z) &kp X &kp C     &kp V     &kp B              &kp N     &kp M     &kp COMMA &kp DOT   &mt(RSFT, SLASH)
-                                 &mt(LALT, ESC) &kp LGUI &mt(LCTRL, TAB)   &kp ENTER &lt(1, SPACE) &lt(2, BACKSPACE)
+                &kp Q &kp W &kp E &kp R &kp T             &kp Y &kp U &kp I &kp O &kp P
+                &kp A &kp S &kp D &kp F &kp G             &kp H &kp J &kp K &kp L &kp SQT
+                &mt(LSHFT, Z) &kp X &kp C &kp V &kp B     &kp N &kp M &kp COMMA &kp DOT &mt(RSFT, SLASH)
+                                  &mt(LALT, ESC) &kp LGUI &mt(LCTRL, TAB)     &kp ENTER &lt(1, SPACE) &lt(2, BACKSPACE)
             >;
         };
 
-        /* ──────────────── LAYER 1: SYMBOLS ──────────────── */
-        symbols_layer {
+        lower_layer {
             bindings = <
-                &kp N1    &kp N2    &kp N3    &kp N4    &kp N5             &kp N6    &kp N7    &kp N8    &kp N9    &kp N0
-                &kp GRAVE &kp HOME  &kp PG_UP &kp PG_DN &kp END            &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp SEMI
-                &kp LSHFT &none     &none     &none     &none              &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH
-                                 &trans &trans &trans                       &trans &lt(1, SPACE) &trans
+                &kp N1 &kp N2 &kp N3 &kp N4 &kp N5         &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
+                &kp GRAVE &kp HOME &kp PG_UP &kp PG_DN &kp END   &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp SEMI
+                &kp LSFT &none &none &none &none          &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH
+                                   &trans &trans &trans   &trans &lt(2, SPACE) &trans
             >;
         };
 
-        /* ──────────────── LAYER 2: FUNCTION ──────────────── */
-        function_layer {
+        raise_layer {
             bindings = <
-                &kp F1    &kp F2    &kp F3    &kp F4    &kp F5             &kp F6    &kp F7    &kp F8    &kp F9    &kp F10
-                &kp F11   &kp F12   &kp K_PREVIOUS &kp K_PLAY_PAUSE &kp K_NEXT
-                                      &kp K_MUTE &kp C_VOLUME_DOWN &kp C_VOLUME_UP &kp C_BRI_DN &kp C_BRI_UP
-                &none     &none     &none     &none     &none              &none     &none     &none     &none     &none
-                                 &trans &trans &trans                      &trans &trans &lt(2, BACKSPACE)
+                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5         &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
+                &kp F11 &kp F12 &kp K_PREVIOUS &kp K_PLAY_PAUSE &kp K_NEXT  &kp K_MUTE &kp C_VOLUME_DOWN &kp C_VOLUME_UP &kp C_BRI_DN &kp C_BRI_UP
+                &none &none &none &none &none              &none &none &none &none &none
+                                   &trans &trans &trans    &trans &trans &trans
             >;
         };
     };
